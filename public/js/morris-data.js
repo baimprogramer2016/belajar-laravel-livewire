@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
     Morris.Area({
         element: 'morris-area-chart',
@@ -56,7 +56,7 @@ $(function() {
         xkey: 'period',
         ykeys: ['iphone', 'ipad', 'itouch'],
         labels: ['iPhone', 'iPad', 'iPod Touch'],
-        pointSize: 2,
+        pointSize: 5,
         hideHover: 'auto',
         resize: true
     });

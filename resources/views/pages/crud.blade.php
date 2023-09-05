@@ -44,6 +44,7 @@
                                 <th>Alamat</th>
                                 <th>Telepon</th>
                                 <th>Email</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,6 +54,24 @@
                                 <td>{{ $item_pegawai->alamat }}</td>
                                 <td>{{ $item_pegawai->telepon }}</td>
                                 <td>{{ $item_pegawai->email }}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                            data-toggle="dropdown">
+                                            Pilih
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li><a href="#" data-toggle="modal" data-target="#modalTambah"
+                                                    onclick="openModalEdit({{ $item_pegawai->id }})">Ubah</a>
+                                            </li>
+                                            <li><a href="#" data-toggle="modal" data-target="#modalTambah"
+                                                    onclick="openModalHapus({{ $item_pegawai->id }})">Hapus</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -72,12 +91,6 @@
 <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title" id="exampleModalLabel">Input Data Pegawai</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
             <div class="modal-body">
                 {{-- FORM ADA DISINI --}}
             </div>
@@ -90,13 +103,33 @@
 @push('script')
 <script>
     function openModalTambah()
-        {
+    {
             $.ajax({
                     url: "{{ route('crud-modal-tambah') }}",
                     success: function( result ) {
                         $( ".modal-body" ).html( result);
                     }
                 });
-        }
+    }
+    function openModalEdit(param_id)
+    {
+            $.ajax({
+                    url: "/crud-modal-edit/"+param_id,
+                    success: function( result ) {
+                        $( ".modal-body" ).html( result);
+
+                    }
+                });
+    }
+    function openModalHapus(param_id)
+    {
+            $.ajax({
+                    url: "/crud-modal-hapus/"+param_id,
+                    success: function( result ) {
+                        $( ".modal-body" ).html( result);
+                    }
+                });
+    }
+
 </script>
 @endpush

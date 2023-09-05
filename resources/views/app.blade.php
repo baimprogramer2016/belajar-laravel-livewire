@@ -36,6 +36,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+    @stack('livewire-style')
 
 </head>
 
@@ -56,7 +57,7 @@
 
     </div>
     <!-- /#wrapper -->
-
+    @stack('livewire-script')
     <!-- jQuery -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 
@@ -75,6 +76,7 @@
     <script src="{{ asset('js/startmin.js') }}"></script>
 
     @stack('script')
+
 </body>
 
 </html>

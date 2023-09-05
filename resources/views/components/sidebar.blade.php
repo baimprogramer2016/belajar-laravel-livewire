@@ -25,6 +25,11 @@
                     <a href="{{ route('crud') }}" class="{{ (request()->is('crud') ? 'active' : '' ) }}"><i
                             class="fa fa-table fa-fw"></i> Crud</a>
                 </li>
+                <li>
+                    <a href="{{ route('crud-livewire') }}"
+                        class="{{ (request()->is('crud-livewire') ? 'active' : '' ) }}"><i
+                            class="fa fa-support fa-fw"></i> Crud Livewire</a>
+                </li>
 
             </ul>
         </div>
